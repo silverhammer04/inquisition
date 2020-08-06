@@ -24,6 +24,6 @@ const readOrdos = () => {
     return iou;
 };
 
-module.exports ={
+module.exports = {
     readOrdos
-}
+};
