@@ -3,7 +3,7 @@ import React from 'react';
 const Ordo = ({ordo}) => {
     return(
         <li>
-            {ordo.name}
+            Ordo {ordo.name}
         </li>
     )
 }

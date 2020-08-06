@@ -1,5 +1,6 @@
 import React from 'react';
 import Ordo from './Ordo';
+import CreateOrdos from './CreateOrdos';
 
 class Ordos extends React.Component {
     state = {
@@ -28,6 +29,8 @@ class Ordos extends React.Component {
                 <ul>
                     {displayOrdos}
                 </ul>
+                <h4>New Ordo</h4>
+                <CreateOrdos refresh={this.getOrdos}/>
             </>
         )
     }
