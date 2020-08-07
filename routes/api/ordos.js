@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const {
     createOrdos,
-    readOrdos
+    readOrdos,
+    deleteOrdos
 } = require('../../data/dal')
 
 router.get('/', async function(req, res) {
@@ -15,5 +16,10 @@ router.post('/', async function(req, res) {
     const data = await createOrdos(body);
         res.send(data);
 });
+
+router.delete('/:id', async function(req, res) {
+    const data = await deleteOrdos(req.params.id); 
+        res.send(data)
+    });
 
 module.exports = router;
