@@ -54,6 +54,26 @@ const createOrdos = (ordo) => {
     });
     return iou;
 }
+const upcertOrdos = (id, ordo) => {
+    const iou = new Promise((resolve, reject) => {
+        MongoClient.connect(url, options, (err, client) => {
+            assert.equal(err, null);
+            const db = client.db(db_name);
+            const collection = db.collection(col_name);
+            collection.findAndModify({ _id: new ObjectID(id)}, 
+            null,
+            {$set: {...ordo}},
+            {upsert: true},
+            (err, result) => {
+                assert.equal(err, null);
+                readOrdoByID(id)
+                    .then(ordo => resolve(ordo))
+                    .then(() => client.close ());
+            })
+        });
+    });
+    return iou;
+}
 const deleteOrdos = (id) => {
     const iou = new Promise((resolve, reject) => {
         MongoClient.connect(url, options, (err, client) => {
@@ -72,5 +92,6 @@ const deleteOrdos = (id) => {
 module.exports = {
     createOrdos,
     readOrdos,
+    upcertOrdos,
     deleteOrdos
 };
