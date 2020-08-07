@@ -16,11 +16,25 @@ class Ordos extends React.Component {
     componentDidMount() {
         this.getOrdos();
     }
+
+    deleteOrdos = (id, refresh) => {
+        const api_url = process.env.REACT_APP_API_URL;
+        fetch(`${api_url}/ordos/${id}`, {
+            method: "DELETE"
+        }) .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                refresh();
+            })
+    }
+
     render(){
         const displayOrdos = this.state.ordos.map(ordo =>
         <Ordo 
             key={ordo._id} 
-            ordo={ordo} />
+            ordo={ordo} 
+            deleteOrdos={this.deleteOrdos}
+            refresh={this.getOrdos} />
             
         )
         return (

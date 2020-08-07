@@ -5,6 +5,13 @@ ul{
 li{
   padding: 2px;
 }
+.Del-Btn{
+  background-color: red;
+  color: white;
+  font-size: 10px;
+  border-radius: 12px;
+  margin-left: 5px;
+}
 .App {
   text-align: center;
 }
