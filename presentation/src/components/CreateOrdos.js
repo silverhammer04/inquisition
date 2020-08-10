@@ -4,6 +4,7 @@ export default class CreateOrdos extends React.Component {
     state = {
         name: "",
         area_of_vigil: "",
+        date: "",
     }
     handleSubmit = (event) =>{
         event.preventDefault();
@@ -18,8 +19,9 @@ export default class CreateOrdos extends React.Component {
             .then(data => console.log(data))
             .then(() => {
                 this.setState({
-                    name:"",
-                    area_of_vigil:""
+                    name: "",
+                    area_of_vigil: "",
+                    date: ""
                 })
             })  .then(this.props.refresh)
     }
@@ -33,13 +35,18 @@ export default class CreateOrdos extends React.Component {
                 <input name="name"
                     type="text"
                     placeholder="name of the ordo"
-                    value={this.state.ordo}
+                    value={this.state.name}
                     onChange={this.handleChange} 
                     required/>
                 <input name="area_of_vigil"
                     type="text"
                     placeholder="area of vigil"
                     value={this.state.area_of_vigil}
+                    onChange={this.handleChange} />
+                <input name="date"
+                    type="text"
+                    placeholder="Est M??"
+                    value={this.state.date}
                     onChange={this.handleChange} />
 
                 <input type="submit"

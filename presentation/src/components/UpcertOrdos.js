@@ -4,6 +4,7 @@ export default class UpcertOrdo extends React.Component {
     state = {
         name: this.props.ordo.name,
         area_of_vigil: this.props.ordo.area_of_vigil,
+        date: this.props.ordo.date,
     };
     handleSubmit = (event) => {
         event.preventDefault();
@@ -25,6 +26,7 @@ export default class UpcertOrdo extends React.Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
+                Ordo_
                 <input name="name"
                     type="text"
                     placeholder="Change ordo?"
@@ -35,6 +37,11 @@ export default class UpcertOrdo extends React.Component {
                     type="text"
                     placeholder="change area of vigil?"
                     value={this.state.area_of_vigil}
+                    onChange={this.handleChange} />
+                <input name="date"
+                    type="text"
+                    placeholder="Est M??"
+                    value={this.state.date}
                     onChange={this.handleChange} />
                 
                 

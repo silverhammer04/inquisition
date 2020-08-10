@@ -5,8 +5,7 @@ import CreateOrdos from './CreateOrdos';
 class Ordos extends React.Component {
     state = {
         ordos: [ ]
-    }
-        
+    }    
     getOrdos = () => {
         const api_url = process.env.REACT_APP_API_URL;
         fetch(`${api_url}/ordos`)
@@ -19,7 +18,7 @@ class Ordos extends React.Component {
 
     deleteOrdos = (id, refresh) => {
         const api_url = process.env.REACT_APP_API_URL;
-        fetch(`${api_url}/ordos/${id}`, {
+        fetch(`${api_url}/ordos/${id}`,{
             method: "DELETE"
         }) .then(response => response.json())
             .then(data => {
